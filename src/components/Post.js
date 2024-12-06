@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FaHeart, FaComment, FaBookmark, FaUser } from 'react-icons/fa';
 import Sidebar from './Sidebar';
+import NavBar from './NavBar';
 
 const Post = ({ imgSrc, title, body, username }) => {
   const [likes, setLikes] = useState(0);
@@ -18,6 +19,7 @@ const Post = ({ imgSrc, title, body, username }) => {
   };
 
   return (
+    
     <div className="flex justify-center w-80 lg:w-full   py-2 px-0 md:pl-1 lg:pl-64 overflow-hidden">
       <div className="w-full max-w-lg rounded-lg shadow-md p-4 bg-black bg-opacity-60">
         {/* User Info Section */}
@@ -28,7 +30,7 @@ const Post = ({ imgSrc, title, body, username }) => {
           <p className="ml-3 text-white font-semibold">{username}</p>
         </div>
 
-        <div className="flex justify-center mb-4">
+        <div className="flex justify-center mb-4 rounded-xl p-10  border-[1px] border-[rgb(38,38,38)">
           <img
             src={imgSrc}
             alt="Post"
@@ -37,7 +39,7 @@ const Post = ({ imgSrc, title, body, username }) => {
           />
         </div>
         <h2 className="text-lg font-semibold text-white">{title}</h2>
-        <p className="text-gray-300 mb-2">{body}</p>
+        <p className="text-gray-300 mb-2 bo">{body}</p>
 
         <div className="flex justify-between items-center mt-4">
           <div className="flex space-x-4">
@@ -49,7 +51,7 @@ const Post = ({ imgSrc, title, body, username }) => {
               <span className="ml-2 text-white">{likes}</span>
             </div>
             <div className="flex items-center">
-              <FaComment className="text-blue-500 cursor-pointer hover:scale-105 transition-transform" />
+              <FaComment className=" text-blue-500 cursor-pointer hover:scale-105 transition-transform" />
               <span className="ml-2 text-white">{comments.length}</span>
             </div>
           </div>
@@ -63,7 +65,7 @@ const Post = ({ imgSrc, title, body, username }) => {
               value={newComment}
               onChange={(e) => setNewComment(e.target.value)}
               placeholder="Add a comment..."
-              className="w-full p-2 border border-gray-600 rounded-lg text-white"
+              className="w-full p-2 bg-black border-gray-600 rounded-lg text-white"
             />
           </form>
           <div className="mt-2 space-y-1">
@@ -103,9 +105,14 @@ const PostsPage = () => {
   }, []);
 
   return (
-    <div className="container mx-auto flex justify-center bg-black text-white min-h-screen">
+    <div className="container mx-auto flex bg-black text-white min-h-screen relative">
+    
+     <div >
+       <NavBar />
+     </div>
+
       {/* Main content area for posts */}
-      <div className="main-content flex-grow py-8 px-4 lg:px-8">
+      <div className="flex-grow  p-4">
         {posts.map((post, index) => (
           <Post 
             key={index} 
@@ -117,7 +124,9 @@ const PostsPage = () => {
         ))}
       </div>
 
-      <div className="sidebar relative bottom-36 w-72 z-0 p-4 bg-black bg-opacity-5 text-white shadow-lg">
+      {/* Side on the right */}
+     
+      <div className="w-72 hidden lg:block lg:mb-28 left-0 h-full">
         <Sidebar />
       </div>
     </div>

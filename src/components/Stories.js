@@ -15,14 +15,14 @@ const Stories = () => {
   return (
     <div>
       <div className="overflow-hidden w-full bg-black">
-        <div className="flex justify-start lg:justify-center items-center p-4 space-x-4">
+        <div className="flex justify-start lg:justify-center items-center p-4 space-x-5">
           {stories.map(story => (
             <div key={story.id} className="flex flex-col items-center">
               <div className="w-16 h-16 rounded-full p-1 bg-gradient-to-r from-yellow-400 via-pink-500 to-purple-600">
                 <img
                   src={story.img}
                   alt={story.name}
-                  className="w-full h-full rounded-full border-2 border-black"
+                  className="w-full h-full rounded-full border-2 border-black hover:cursor-pointer"
                 />
               </div>
               <p className="text-xs text-center text-white mt-1">{story.name}</p>

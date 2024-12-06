@@ -1,13 +1,12 @@
 import React from 'react';
 import { FaHeart, FaCommentDots } from 'react-icons/fa';
-import { FiChevronDown } from 'react-icons/fi';
+
 
 const Header = () => {
   return (
-    <header className="flex justify-between items-center p-4 border-b bg-black shadow-md">
+    <header className="flex justify-between items-center p-4  bg-black shadow-md">
       <div className="flex items-center space-x-2">
-        <span className="text-white text-lg font-bold font-special">Conovo Task</span>
-        <FiChevronDown className="text-white text-xl" />
+        <span className="text-white text-lg font-bold font-special xs:fixed lg:hidden">Instagram Clone</span>
       </div>
       <div className="flex space-x-4">
         <FaHeart

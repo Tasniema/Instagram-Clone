@@ -3,7 +3,8 @@ import { FaHome, FaSearch, FaPlus, FaPlayCircle, FaUser } from 'react-icons/fa';
 import videoData from './videos.json'; // Ensure this path is correct
 
 // Footer Component
-const Footer = ({ setSearchText, setShowPostForm, setShowVideos, scrollToFirstPost, navigateToHome }) => {
+// eslint-disable-next-line react/prop-types
+function Footer({ setSearchText, setShowPostForm, setShowVideos, scrollToFirstPost, navigateToHome }) {
   return (
     <footer className="fixed bottom-0 w-full flex justify-around items-center bg-black text-white p-4 border-t shadow-lg z-20">
       <FaHome className="text-white cursor-pointer" onClick={navigateToHome} />
@@ -13,7 +14,7 @@ const Footer = ({ setSearchText, setShowPostForm, setShowVideos, scrollToFirstPo
       <FaUser className="text-white cursor-pointer" />
     </footer>
   );
-};
+}
 
 // PostForm Component for adding a new post
 const PostForm = ({ setShowPostForm, addPost }) => {
@@ -28,7 +29,7 @@ const PostForm = ({ setShowPostForm, addPost }) => {
   };
 
   return (
-    <div className="fixed top-0 left-0 w-96 lg:w-full h-full bg-black bg-opacity-50 flex justify-center items-center z-10">
+    <div className="flex fixed top-0 left-0 w-96 h-full bg-black bg-opacity-50 justify-center items-center z-10 ">
       <div className="bg-white p-6 rounded-lg w-96">
         <form onSubmit={handleSubmit}>
           <textarea
